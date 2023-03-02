@@ -1,0 +1,30 @@
+.subtitle {
+    margin: 0.5rem 0 1.5rem;
+    font-size: large;
+}
+
+p {
+    max-width: 70ch;
+}
+
+details.table-of-contents {
+    border: 1px solid var(--outline);
+    border-left: 0px;
+    border-right: 0px;
+    padding: 1rem;
+    font-size: large;
+    margin-bottom: 1.5rem;
+}
+
+details.table-of-contents summary {
+    cursor: pointer;
+}
+
+details.table-of-contents[open] summary {
+    margin-bottom: 0.5rem;
+}
+
+details.table-of-contents ul ul {
+    margin-left: 1rem;
+}
+

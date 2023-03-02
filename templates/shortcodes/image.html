@@ -1,0 +1,10 @@
+<figure>
+    {% if link %}
+        <a href="{{ link }}">
+    {% endif %}
+    <img src="{{ path }}" alt="{{ description | striptags }}">
+    {% if link %}
+        </a>
+    {% endif %}
+    <figcaption>{{ description | safe}}</figcaption>
+</figure>

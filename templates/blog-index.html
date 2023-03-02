@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title" style="margin-bottom: 2rem;">
+  {{ section.title }}
+</h1>
+<ul class="cards-list">
+  <!-- If you are using pagination, section.pages will be empty. You need to use the paginator object -->  
+  {% for page in section.pages %}
+  <li class="card">
+    <h1>{{ page.title }}</h1>
+    <p class="posted-date">Posted {{ page.date }}</p>
+    <p>
+      {% if page.summary %}
+        {{ page.summary }}
+      {% else %}
+        {{ page.content | striptags | truncate(length=70)}}
+      {% endif %}
+    </p>
+    <a href="{{ page.permalink | safe }}">Read post</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}

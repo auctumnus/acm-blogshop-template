@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Welcome to my blog!
+</h1>
+<p>
+  This is my blog, from the ACM UMN Blog Workshop events. You can check out all
+  of my posts from the link above, or you can check out a couple of my most
+  recent posts below:
+</p>
+
+{% set section = get_section(path="blog/_index.md") %}
+
+{% set pages = section.pages | slice(start=1,end=3) %}
+
+<ul class="cards-list">
+  <!-- If you are using pagination, section.pages will be empty. You need to use the paginator object -->  
+  {% for page in section.pages %}
+  <li class="card">
+    <h1>{{ page.title }}</h1>
+    <p class="posted-date">Posted {{ page.date }}</p>
+    <p>
+      {% if page.summary %}
+        {{ page.summary }}
+      {% else %}
+        {{ page.content | striptags | truncate(length=70)}}
+      {% endif %}
+    </p>
+    <a href="{{ page.permalink | safe }}">Read post</a>
+  </li>
+  {% endfor %}
+</ul>
+
+
+{% endblock content %}
